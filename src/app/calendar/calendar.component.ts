@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+
 import esLocale from '@fullcalendar/core/locales/es';
 
 @Component({
@@ -12,23 +13,27 @@ import esLocale from '@fullcalendar/core/locales/es';
 })
 export class CalendarComponent implements OnInit {
 
-  public events: any[];
+  @Input() events: any;
+
   public options: any;
 
-  constructor() { }
-
-  ngOnInit() {
-
+  constructor() {
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin,interactionPlugin],
       defaulDate: new Date(),
-      locale: esLocale,
+      locale: 'pt-br',
       header:{
         left: 'prev,next',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },buttonText: {
+        today: 'Hoje',
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Hoje',
+        list: 'Lista'
       },
-      editable: false
+      editable: true
     }
 
     this.events = [
@@ -48,7 +53,12 @@ export class CalendarComponent implements OnInit {
         end: new Date(new Date().getTime() + (86400000 * 3) ),
         description: "Evento 3"
       },
-    ]
+
+   ]}
+
+  ngOnInit() {
+
+
 
 
   }
