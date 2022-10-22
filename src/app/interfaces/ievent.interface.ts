@@ -1,5 +1,8 @@
+
 export interface IEvent{
-  descricao: string;
-  inicio: Date;
-  fim?: Date;
+  id?: String;
+  start: Date;
+  title: String;
+
+
 }

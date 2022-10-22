@@ -4,6 +4,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
+import { EventService } from 'src/app/service/event.service';
+import { IEvent } from 'src/app/interfaces/ievent.interface';
 
 @Component({
   selector: 'app-content',
@@ -13,39 +15,33 @@ import esLocale from '@fullcalendar/core/locales/es';
 export class ContentComponent implements OnInit {
 
   @Input() events: any;
+  //public events:any[];
   public options: any;
 
-  constructor() { this.options = {
-    plugins: [dayGridPlugin, timeGridPlugin,interactionPlugin],
-    defaulDate: new Date(),
-    locale: esLocale,
-    header:{
-      left: 'prev,next',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-    editable: true
-  }
+  constructor(private service: EventService) {
 
-  this.events = [
+
+ this.service.getEvents().subscribe(result => {
+    this.events = result
+
+      console.log(this.events)
+  });
+
+
+ /*this.events = [
+   {
+      id: '2',
+      title: "Evento 99",
+      start: new Date("10-22-2022 10:10:10")
+    },
     {
+      id: '4',
       title: "Evento 1",
-      start: new Date(),
-      description: "Evento 1"
-    },
-    {
-      title: "Evento 2",
-      start: new Date(new Date().getTime() + 86400000 ),
-      description: "Evento 3"
-    },
-    {
-      title: "Evento 3",
-      start: new Date(new Date().getTime() + (86400000 * 2) ),
-      end: new Date(new Date().getTime() + (86400000 * 3) ),
-      description: "Evento 3"
-    },
-
- ]}
+      start: new Date("10/11/2022 14:45:10")
+    }
+  ]*/
+  console.log(this.events)
+}
 
   ngOnInit() {
   }

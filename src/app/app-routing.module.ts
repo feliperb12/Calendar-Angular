@@ -5,18 +5,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    component: ContentComponent
+  },
+  {
     path: 'events',
     component: ContentComponent
   },
   {
-    path: 'add-event',
+    path: 'create',
     component: AddEventComponent
-  },
-  {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: 'events'
   }
+
 ];
 
 @NgModule({

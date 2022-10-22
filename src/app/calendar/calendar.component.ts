@@ -5,6 +5,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 import esLocale from '@fullcalendar/core/locales/es';
+import { IEvent } from '../interfaces/ievent.interface';
+import { EventService } from '../service/event.service';
 
 @Component({
   selector: 'app-calendar',
@@ -13,14 +15,14 @@ import esLocale from '@fullcalendar/core/locales/es';
 })
 export class CalendarComponent implements OnInit {
 
-  @Input() events: any;
-
+  @Input() events: IEvent[];
   public options: any;
 
-  constructor() {
+  constructor(private service: EventService) {
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin,interactionPlugin],
-      defaulDate: new Date(),
+      defaulDate: 'YY-MM-DD',
+      timeZone:'UTC',
       locale: 'pt-br',
       header:{
         left: 'prev,next',
@@ -33,28 +35,11 @@ export class CalendarComponent implements OnInit {
         day: 'Hoje',
         list: 'Lista'
       },
-      editable: true
+      editable: false
     }
 
-    this.events = [
-      {
-        title: "Evento 1",
-        start: new Date(),
-        description: "Evento 1"
-      },
-      {
-        title: "Evento 2",
-        start: new Date(new Date().getTime() + 86400000 ),
-        description: "Evento 3"
-      },
-      {
-        title: "Evento 3",
-        start: new Date(new Date().getTime() + (86400000 * 2) ),
-        end: new Date(new Date().getTime() + (86400000 * 3) ),
-        description: "Evento 3"
-      },
 
-   ]}
+  }
 
   ngOnInit() {
 

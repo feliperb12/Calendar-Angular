@@ -1,6 +1,8 @@
+
 //angulalr
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 //module
 import { AppRoutingModule } from './app-routing.module';
@@ -11,23 +13,23 @@ import { CheckboxModule } from 'primeng/checkbox';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
-
 //components
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { HeaderComponent } from './calendar/content/header/header.component';
-import { EventsComponent } from './calendar/content/events/events.component';
 import { ContentComponent } from './calendar/content/content/content.component';
 import { AddEventComponent } from './calendar/content/content/add-event/add-event.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
     HeaderComponent,
-    EventsComponent,
     ContentComponent,
-    AddEventComponent,
+    AddEventComponent
+
 
   ],
   imports: [
@@ -37,10 +39,17 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     CalendarModule,
     CheckboxModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+
