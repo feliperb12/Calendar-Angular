@@ -19,6 +19,8 @@ import { HeaderComponent } from './calendar/content/header/header.component';
 import { ContentComponent } from './calendar/content/content/content.component';
 import { AddEventComponent } from './calendar/content/content/add-event/add-event.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditEventComponent } from './calendar/content/content/edit-event/edit-event.component';
+import { ReadEventComponent } from './calendar/content/content/read-event/read-event.component';
 
 
 
@@ -28,7 +30,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CalendarComponent,
     HeaderComponent,
     ContentComponent,
-    AddEventComponent
+    AddEventComponent,
+    EditEventComponent,
+    ReadEventComponent
 
 
   ],
@@ -41,7 +45,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CheckboxModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
   ],
   providers: [],

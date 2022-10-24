@@ -7,3 +7,6 @@ html, body{
 html body .ui-calendar{
   display: block ;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

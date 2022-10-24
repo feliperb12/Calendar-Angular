@@ -22,7 +22,7 @@ export class CalendarComponent implements OnInit {
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin,interactionPlugin],
       defaulDate: 'YY-MM-DD',
-      timeZone:'UTC',
+      timeZone:'local',
       locale: 'pt-br',
       header:{
         left: 'prev,next',
@@ -37,15 +37,11 @@ export class CalendarComponent implements OnInit {
       },
       editable: false
     }
-
-
   }
 
+
+
   ngOnInit() {
-
-
-
-
   }
 
 }

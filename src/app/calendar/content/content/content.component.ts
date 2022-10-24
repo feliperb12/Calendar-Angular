@@ -16,7 +16,6 @@ export class ContentComponent implements OnInit {
 
   @Input() events: any;
   //public events:any[];
-  public options: any;
 
   constructor(private service: EventService) {
 
