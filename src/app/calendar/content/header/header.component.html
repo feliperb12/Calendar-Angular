@@ -1,18 +1,27 @@
+
 <div class="row" id="header">
   <div class="col-1 border p-2">
-
     <!--COLOCAR LOGO AQUI-->
     <img class="img-fluid" src="/assets/img/LogoMayk.png" alt="50%">
 
   </div>
   <div class="col-11 border">
-
-    <nav class="nav text-left">
-      <a class="nav-link active" [routerLink]="['/events']" routerLinkActive="router-link-active" href="#">Eventos</a>
-      <a class="nav-link" href="#" [routerLink]="['/create']" routerLinkActive="router-link-active">Adicionar Eventos</a>
-      <a class="nav-link active" [routerLink]="['/listEvents']" routerLinkActive="router-link-active" href="#">Lista de Eventos</a>
-      <a class="nav-link disabled" href="#">Contas</a>
-
+    <nav class="nav text-left" id="menu">
+      <label for="id-show-menu" class="show-menu">
+        <div class="nav-icon">
+          <i class="fa fa-navicon"></i>
+        </div>
+      </label>
+      <input type="checkbox" id="id-show-menu" class="checkbox-menu" role="button">
+      <div class="menu-block">
+        <ul class="navUL">
+          <li><a class="nav-link active" [routerLink]="['/events']" routerLinkActive="router-link-active" href="#">Home</a></li>
+          <li><a class="nav-link active" href="#" [routerLink]="['/create']" routerLinkActive="router-link-active">Adicionar Eventos</a></li>
+          <li><a class="nav-link active" [routerLink]="['/listEvents']" routerLinkActive="router-link-active" href="#">Lista de Eventos</a></li>
+          <li><a class="nav-link active" [routerLink]="['/listarContas']">Contas</a></li>
+        </ul>
+      </div>
     </nav>
+
   </div>
 </div>

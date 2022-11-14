@@ -1,29 +1,31 @@
 <div class="row">
   <div class="col-12">
-    <h1 style="text-align: center;">Adicionar</h1>
+    <h1 style="text-align: center;">ADICIONAR EVENTO</h1>
     <form [formGroup]="eventForm">
+      <div class="forms">
 
-        <div class="col-md-4 col-12">
-          <label for="descricao">Descrição</label>
-          <input type="text" class="form-control" formControlName ="title" name="title" id="title"/>
+        <div class="col-md-6 col-12">
+          <h3>
+            <label for="descricao">Descrição</label>
+          </h3>
+          <input type="text" class="form-control" formControlName="title" name="title" id="title" placeholder="Ex. Tatuagem na perna - João"/>
         </div>
 
-        <div>
-          <div class="col-md-4 col-12">
+        <div class="calendar-form col-md-6 col-12">
+          <h3>
             <label for="start">Data</label>
-            <p-calendar name="start" formControlName = "start" dateFormat="mm-dd-yy" [showTime]="true"   id="start" inputStyleClass="form-control"></p-calendar>
-          </div>
+          </h3>
+          <p-calendar [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" class="calendar" name="start" formControlName="start" dateFormat="dd-mm-yy" [showTime]="true" id="start"
+            inputStyleClass="form-control"></p-calendar>
         </div>
 
-
-
-
-      <div>
-        <div>
-          <button (click)="addEvent()" type="button" type="submit" class="btn btn-primary btn-block">Adicionar Evento</button>
+        <div class="col-md-6 col-12">
+          <button type="button" (click)="addEvent()" type="submit" class="mat-elevation-z8" mat-raised-button
+        color="basic">ADICIONAR EVENTO</button>
         </div>
+
       </div>
-
     </form>
   </div>
 </div>
+<app-footer></app-footer>

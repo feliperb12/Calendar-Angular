@@ -1,0 +1,42 @@
+<h1>ATUALIZANDO UMA CONTA</h1>
+<form>
+  <div class="forms">
+
+    <div class="col-md-4 col-12">
+      <h3>
+        <label for="descricao">Descrição</label>
+      </h3>
+      <input type="text" class="form-control" [(ngModel)]="contas.descricao" name="descricao" id="descricao"
+        placeholder="Ex. Conta de Energia" />
+    </div>
+
+    <div class="col-md-4 col-12">
+      <h3>
+        <label for="descricao">Valor da Conta</label>
+      </h3>
+      <input type="text" class="form-control" [(ngModel)]="contas.valor" name="valor" id="valor"
+        placeholder="Exemplo: 120.25" />
+    </div>
+
+    <div class="col-md-4 col-12">
+      <h3>
+        <label for="descricao">Data da Conta</label>
+      </h3>
+      <input type="text" class="form-control" [(ngModel)]="contas.dataDaConta" name="dataDaConta" id="dataDaConta"
+        placeholder="DD-MM-YY" />
+    </div>
+
+    <div class="btn-group buttons">
+      <div>
+        <button (click)="update()" class="mat-elevation-z8" mat-raised-button color="black">ATUALIZAR</button>
+      </div>
+
+      <div>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-raised-button color="warn">CANCELAR</button>
+      </div>
+
+    </div>
+
+  </div>
+</form>
+<app-footer></app-footer>

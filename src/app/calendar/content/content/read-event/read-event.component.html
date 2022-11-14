@@ -1,1 +1,51 @@
-<p>read-event works!</p>
+<div class="content">
+  <div class="title">
+      <h1>TODOS EVENTOS</h1>
+  </div>
+
+
+
+  <div class="mat-elevation-z8 content-table" >
+      <table class="table" mat-table [dataSource]="events">
+
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
+          </ng-container>
+
+          <!-- Name Column
+          FORMATAR DATA ->   | date:'dd/mm/yyyy hh:mm:ss' -->
+          <ng-container matColumnDef="start">
+              <th mat-header-cell *matHeaderCellDef > DATA </th>
+              <td mat-cell *matCellDef="let row" > {{row.start | date:'YYYY/MM/dd T HH:mm:ss' }} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
+              <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="acoes">
+              <th class="mat-header" mat-header-cell *matHeaderCellDef> AÇÕES </th>
+              <td mat-cell *matCellDef="let row">
+                  <a class="edit" routerLink="/update/{{row.id}}">
+                      <i class="material-icons">edit</i>
+                  </a>
+
+                  <a class="delete" routerLink="/delete/{{row.id}}">
+                      <i class="material-icons">delete</i>
+                  </a>
+              </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  </div>
+
+</div>
+<app-footer></app-footer>

@@ -14,14 +14,15 @@ import { EventService } from '../service/event.service';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-
+  title = 'Calendario Mayk';
   @Input() events: IEvent[];
   public options: any;
 
   constructor(private service: EventService) {
+
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin,interactionPlugin],
-      defaulDate: 'YY-MM-DD',
+      defaulDate: 'dd-MM-YY HH:mm:ss',
       timeZone:'local',
       locale: 'pt-br',
       header:{

@@ -14,7 +14,6 @@ export class AddEventComponent implements OnInit {
   eventForm: FormGroup;
 
 
-
    constructor(private fb: FormBuilder,
     private eventService: EventService,
     private actRoute: ActivatedRoute,
@@ -35,9 +34,11 @@ export class AddEventComponent implements OnInit {
 
     this.eventService.create(this.eventForm.value).subscribe(result => {
       console.log(`evento ${result.id} foi cadastrado com sucesso !`)
-
-    }, (err) => {
-        console.log(err)
+      this.eventService.mensagem('Evento criado com sucesso!');
+    },  err =>{
+      for(let i=0; i<err.error.errors.length; i++){
+        this.eventService.mensagem(err.error.errors[i].message)
+      }
     }, () => {
       this.router.navigate(['/']);
     })

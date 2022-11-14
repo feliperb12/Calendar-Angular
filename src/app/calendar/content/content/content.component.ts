@@ -27,18 +27,6 @@ export class ContentComponent implements OnInit {
   });
 
 
- /*this.events = [
-   {
-      id: '2',
-      title: "Evento 99",
-      start: new Date("10-22-2022 10:10:10")
-    },
-    {
-      id: '4',
-      title: "Evento 1",
-      start: new Date("10/11/2022 14:45:10")
-    }
-  ]*/
   console.log(this.events)
 }
 

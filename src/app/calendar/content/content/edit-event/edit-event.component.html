@@ -1,1 +1,36 @@
-<p>edit-event works!</p>
+<div class="row">
+  <div class="col-12">
+    <h1 style="text-align: center;">ATUALIZANDO EVENTO</h1>
+    <form>
+      <div class="forms">
+        <div class="col-md-4 col-12">
+          <h3>
+            <label for="descricao">Descrição</label>
+          </h3>
+          <input matInput type="text" class="form-control" [(ngModel)]="eventI.title" name="title" id="title" />
+        </div>
+
+        <h3>
+          <label for="start">Data =
+            <span>{{eventI.start | date: "dd/MM/yyy 'HORAS'= HH:mm"}}</span>
+          </label>
+        </h3>
+        <div class="calendar-form col-md-4 col-12">
+
+          <p-calendar [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" class="calendar" name="start"
+            dateFormat="dd/mm/yy" [(ngModel)]="eventI.start" [showTime]="true" id="start"
+            inputStyleClass="form-control"></p-calendar>
+
+        </div>
+        <div class="botoes">
+          <button type="button" (click)="update()" type="submit" class="mat-elevation-z8" mat-raised-button
+            color="basic">ATUALIZAR</button>
+          <button type="button" (click)="cancel()" type="submit" class="mat-elevation-z8" mat-raised-button
+            color="warn">CANCELAR</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

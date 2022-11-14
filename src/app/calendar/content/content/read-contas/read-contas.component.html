@@ -1,0 +1,75 @@
+<div class="content">
+  <div class="title">
+      <h1>TODAS CONTAS</h1>
+  </div>
+  <button type="button" (click)="navegarParaContasCreate()" type="submit" class="mat-elevation-z8"  mat-raised-button color="basic">ADICIONAR NOVA CONTA</button>
+
+  <form>
+    <h4>mat-select</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>MESES</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="mes">
+        <mat-option *ngFor="let mes of meses" [value]="mes.mes" routerLink="/contas/mes/{{mes.mes}}">
+          {{mes.nomeMes}}
+
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <div class="mat-elevation-z8 content-table" >
+      <table class="table" mat-table [dataSource]="contas">
+
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="mes">
+              <th mat-header-cell *matHeaderCellDef > MÊS </th>
+              <td mat-cell *matCellDef="let row" > {{row.mes }} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="descricao">
+              <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
+              <td mat-cell *matCellDef="let row"> {{row.descricao}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="valor">
+            <th mat-header-cell *matHeaderCellDef> VALOR </th>
+            <td mat-cell *matCellDef="let row"> R${{row.valor}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataDaConta">
+          <th mat-header-cell *matHeaderCellDef> DATA DA CONTAS </th>
+          <td mat-cell *matCellDef="let row"> {{row.dataDaConta  | date:'dd/MM/YY'}} </td>
+      </ng-container>
+
+
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="acoes">
+              <th class="mat-header" mat-header-cell *matHeaderCellDef> AÇÕES </th>
+              <td mat-cell *matCellDef="let row">
+                  <a class="edit" routerLink="/contas/update/{{row.id}}">
+                      <i class="material-icons">edit</i>
+                  </a>
+
+                  <a class="delete" routerLink="/contas/delete/{{row.id}}">
+                      <i class="material-icons">delete</i>
+                  </a>
+              </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  </div>
+
+</div>
+<app-footer></app-footer>
